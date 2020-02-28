@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>101848994354-7bgibgf1bg0equtj2dea3rqab496bd2f.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.101848994354-7bgibgf1bg0equtj2dea3rqab496bd2f</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDlR19c8NxzMs98qzwwIEmbK3avgEjPRbQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>101848994354</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ThaWindWaker.InstaCloneFireBase</string>
+	<key>PROJECT_ID</key>
+	<string>instaclonefirebase-4aae3</string>
+	<key>STORAGE_BUCKET</key>
+	<string>instaclonefirebase-4aae3.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:101848994354:ios:33d693165a18d577e6a22b</string>
+	<key>DATABASE_URL</key>
+	<string>https://instaclonefirebase-4aae3.firebaseio.com</string>
+</dict>
+</plist>

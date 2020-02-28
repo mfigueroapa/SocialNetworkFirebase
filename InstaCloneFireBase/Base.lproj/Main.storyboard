@@ -79,6 +79,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="72d-Nf-4Io"/>
                     <connections>
                         <outlet property="emailText" destination="dt5-Kj-rcn" id="Ga6-GO-qYc"/>
                         <outlet property="passwordText" destination="2ME-Ri-IMY" id="8LQ-oj-hwj"/>
@@ -92,7 +93,7 @@
         <!--Upload-->
         <scene sceneID="0va-Z8-E86">
             <objects>
-                <viewController id="zvl-cY-RSG" sceneMemberID="viewController">
+                <viewController id="zvl-cY-RSG" customClass="UploadViewController" customModule="InstaCloneFireBase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="prk-5K-4GB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -108,23 +109,40 @@
         <!--Settings-->
         <scene sceneID="0Fe-Cz-2oH">
             <objects>
-                <viewController id="1fX-3T-XRj" sceneMemberID="viewController">
+                <viewController id="1fX-3T-XRj" customClass="SettingsViewController" customModule="InstaCloneFireBase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CJu-xk-zKI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06m-PW-R8w">
+                                <rect key="frame" x="141" y="401" width="132" height="30"/>
+                                <state key="normal" title="Log out"/>
+                                <connections>
+                                    <action selector="logoutClicked:" destination="1fX-3T-XRj" eventType="touchUpInside" id="Ka3-rJ-J8r"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="06m-PW-R8w" firstAttribute="centerX" secondItem="CJu-xk-zKI" secondAttribute="centerX" id="97K-ab-DVu"/>
+                            <constraint firstItem="06m-PW-R8w" firstAttribute="leading" secondItem="IVQ-wI-q21" secondAttribute="leading" constant="141" id="UA8-LQ-934"/>
+                            <constraint firstItem="06m-PW-R8w" firstAttribute="top" secondItem="IVQ-wI-q21" secondAttribute="top" constant="357" id="fuD-Wq-JWH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="IVQ-wI-q21"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="s.circle.fill" catalog="system" id="dUG-x2-wQV"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toViewController" modalPresentationStyle="fullScreen" id="k4k-X8-SkQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hzb-tr-jVF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6" y="1022"/>
+            <point key="canvasLocation" x="-7.2463768115942031" y="1021.875"/>
         </scene>
         <!--Feed-->
         <scene sceneID="VyZ-a7-Gbt">
             <objects>
-                <viewController id="GuR-8j-Mt7" sceneMemberID="viewController">
+                <viewController id="GuR-8j-Mt7" customClass="FeedViewController" customModule="InstaCloneFireBase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LU5-1t-F0A">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

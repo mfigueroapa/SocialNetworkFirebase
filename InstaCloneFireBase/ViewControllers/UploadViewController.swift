@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -47,7 +48,14 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    func makeAlert(titleInput: String, messageInput: String){
+        let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)
+        let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func actionButtonClicked(_ sender: Any) {
         
         let storage = Storage.storage()
@@ -57,15 +65,33 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         
         if let data = imageView.image?.jpegData(compressionQuality: 0.5) { //0.3, 0.4
-            let imageReference = mediaFolder.child("image.jpg")
+            
+            let uuid = UUID().uuidString //creates unique id
+            let imageReference = mediaFolder.child("\(uuid).jpg")
             imageReference.putData(data, metadata: nil) { (metadata, error) in
                 if error != nil {
-                    print(error?.localizedDescription)
+                    self.makeAlert(titleInput: "Error!", messageInput: error?.localizedDescription ?? "Error") //always self inside closure - localizedDescription = error data from Firebase
                 } else {
                     imageReference.downloadURL { (url, error) in
                         if error == nil {
                             let imageUrl = url?.absoluteString
                             print(imageUrl)
+                            
+                            //Database
+                            
+                            let firestoreDatabase = Firestore.firestore()
+                            
+                            var firestoreReference : DocumentReference? = nil
+                            
+                            let firestorePost = ["imageUrl" : imageUrl!, "postedBy" : Auth.auth().currentUser!.email, "postComment" : self.commentText.text!, "date": "date", "likes" : 0] as [String : Any]
+                            
+                            firestoreReference = firestoreDatabase.collection("Posts").addDocument(data: firestorePost, completion: { (error) in
+                                if error != nil {
+                                    self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
+                                }
+                            })
+                            
+                            
                         }
                     }
                 }

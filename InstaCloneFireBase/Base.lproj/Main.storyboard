@@ -244,6 +244,12 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="documentIDLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrA-aL-X0x">
+                                                    <rect key="frame" x="308" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="e0I-S8-xaa" firstAttribute="top" secondItem="8W8-dK-mGE" secondAttribute="topMargin" id="8Au-gF-LEl"/>
@@ -251,8 +257,10 @@
                                                 <constraint firstItem="e0I-S8-xaa" firstAttribute="leading" secondItem="8W8-dK-mGE" secondAttribute="leadingMargin" constant="7" id="LMO-uc-SkM"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="e0I-S8-xaa" secondAttribute="trailing" constant="18" id="MGL-CC-abb"/>
                                                 <constraint firstItem="SrH-z4-UPb" firstAttribute="trailing" secondItem="jFS-Wj-Kzh" secondAttribute="trailing" id="Rhn-wD-FMN"/>
+                                                <constraint firstItem="SrA-aL-X0x" firstAttribute="centerX" secondItem="SrH-z4-UPb" secondAttribute="centerX" id="SC6-tX-ZPH"/>
                                                 <constraint firstItem="7yO-g2-i0e" firstAttribute="leading" secondItem="8W8-dK-mGE" secondAttribute="leadingMargin" constant="13" id="STx-Dn-jF5"/>
                                                 <constraint firstItem="oSM-72-QQL" firstAttribute="top" secondItem="jFS-Wj-Kzh" secondAttribute="bottom" constant="7" id="UmR-wr-H01"/>
+                                                <constraint firstItem="SrA-aL-X0x" firstAttribute="firstBaseline" secondItem="e0I-S8-xaa" secondAttribute="firstBaseline" id="baP-IR-gti"/>
                                                 <constraint firstItem="oSM-72-QQL" firstAttribute="leading" secondItem="7yO-g2-i0e" secondAttribute="leading" id="eJA-im-l4k"/>
                                                 <constraint firstItem="oSM-72-QQL" firstAttribute="centerX" secondItem="jFS-Wj-Kzh" secondAttribute="centerX" id="gcG-dg-sdj"/>
                                                 <constraint firstItem="jFS-Wj-Kzh" firstAttribute="centerX" secondItem="8W8-dK-mGE" secondAttribute="centerX" id="hVf-C6-Zbi"/>
@@ -261,10 +269,12 @@
                                                 <constraint firstItem="SrH-z4-UPb" firstAttribute="centerY" secondItem="7yO-g2-i0e" secondAttribute="centerY" id="qAB-YB-Dnu"/>
                                                 <constraint firstItem="SrH-z4-UPb" firstAttribute="top" secondItem="jFS-Wj-Kzh" secondAttribute="bottom" constant="33" id="vNf-b1-6j8"/>
                                                 <constraint firstItem="jFS-Wj-Kzh" firstAttribute="top" secondItem="e0I-S8-xaa" secondAttribute="bottom" constant="8" id="yCD-EY-Gbv"/>
+                                                <constraint firstItem="SrA-aL-X0x" firstAttribute="leading" secondItem="SrH-z4-UPb" secondAttribute="leading" id="z2P-jH-yKa"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="commentLabel" destination="oSM-72-QQL" id="w0B-hr-3Hh"/>
+                                            <outlet property="documentIdLabel" destination="SrA-aL-X0x" id="kJ7-Y1-9UT"/>
                                             <outlet property="likeLabel" destination="SrH-z4-UPb" id="mLJ-0T-w6Z"/>
                                             <outlet property="userEmailLabel" destination="e0I-S8-xaa" id="HSG-Ob-ixB"/>
                                             <outlet property="userImageView" destination="jFS-Wj-Kzh" id="rsP-sr-UDb"/>

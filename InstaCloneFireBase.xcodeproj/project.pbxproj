@@ -17,6 +17,7 @@
 		2254AE7B2408AC9E00377A79 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2254AE7A2408AC9E00377A79 /* FeedViewController.swift */; };
 		2254AE7D2408ACAD00377A79 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2254AE7C2408ACAD00377A79 /* UploadViewController.swift */; };
 		2254AE7F2408ACBB00377A79 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2254AE7E2408ACBB00377A79 /* SettingsViewController.swift */; };
+		2254AE82240C240000377A79 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2254AE81240C240000377A79 /* FeedTableViewCell.swift */; };
 		A18A01D06EE179451AB92C4B /* Pods_InstaCloneFireBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1574355E1A637BAEC7BBD252 /* Pods_InstaCloneFireBase.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		2254AE7A2408AC9E00377A79 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		2254AE7C2408ACAD00377A79 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		2254AE7E2408ACBB00377A79 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2254AE81240C240000377A79 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		56E47AFEFF964A2EE0DEEDE5 /* Pods-InstaCloneFireBase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaCloneFireBase.release.xcconfig"; path = "Target Support Files/Pods-InstaCloneFireBase/Pods-InstaCloneFireBase.release.xcconfig"; sourceTree = "<group>"; };
 		8AD9EEF02980FDB5B5AB4281 /* Pods-InstaCloneFireBase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaCloneFireBase.debug.xcconfig"; path = "Target Support Files/Pods-InstaCloneFireBase/Pods-InstaCloneFireBase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				2254AE802408AD5000377A79 /* ViewControllers */,
+				2254AE81240C240000377A79 /* FeedTableViewCell.swift */,
 				2254AE6424088C0700377A79 /* AppDelegate.swift */,
 				2254AE6624088C0800377A79 /* SceneDelegate.swift */,
 				2254AE6A24088C0800377A79 /* Main.storyboard */,
@@ -229,6 +232,7 @@
 			files = (
 				2254AE6924088C0800377A79 /* ViewController.swift in Sources */,
 				2254AE7D2408ACAD00377A79 /* UploadViewController.swift in Sources */,
+				2254AE82240C240000377A79 /* FeedTableViewCell.swift in Sources */,
 				2254AE6524088C0800377A79 /* AppDelegate.swift in Sources */,
 				2254AE7B2408AC9E00377A79 /* FeedViewController.swift in Sources */,
 				2254AE6724088C0800377A79 /* SceneDelegate.swift in Sources */,

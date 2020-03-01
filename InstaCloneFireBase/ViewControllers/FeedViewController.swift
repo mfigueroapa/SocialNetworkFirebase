@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import SDWebImage
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -36,7 +37,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.userEmailLabel.text = userEmailArray[indexPath.row]
         cell.likeLabel.text = String(likeArray[indexPath.row])
         cell.commentLabel.text = userCommentArray[indexPath.row]
-        cell.userImageView.image = UIImage()
+        cell.userImageView.sd_setImage(with: URL(string: self.userImageArray[indexPath.row]))
         return cell//
         
     }
@@ -48,6 +49,13 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print(error?.localizedDescription)
             } else {
                 if snapshot?.isEmpty != true && snapshot != nil {
+                    
+                    /////////Cleaning each array to avoid duplicates
+                    self.userImageArray.removeAll(keepingCapacity: false)
+                    self.userEmailArray.removeAll(keepingCapacity: false)
+                    self.userCommentArray.removeAll(keepingCapacity: false)
+                    self.likeArray.removeAll(keepingCapacity: false)
+                    
                     for document in snapshot!.documents { //contains all of the documents of the posts collection
                         let documentID = document.documentID
               

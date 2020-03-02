@@ -15,6 +15,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var commentText: UITextField!
     @IBOutlet weak var uploadButton: UIImageView!
+    var likedByUsers = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,15 +40,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
     
     func makeAlert(titleInput: String, messageInput: String){
         let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)
@@ -83,7 +76,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                             
                             var firestoreReference : DocumentReference? = nil
                             
-                            let firestorePost = ["imageUrl" : imageUrl!, "postedBy" : Auth.auth().currentUser!.email, "postComment" : self.commentText.text!, "date": FieldValue.serverTimestamp(), "likes" : 0] as [String : Any]
+                            let firestorePost = ["imageUrl" : imageUrl!, "postedBy" : Auth.auth().currentUser!.email, "postComment" : self.commentText.text!, "date": FieldValue.serverTimestamp(), "likes" : 0, "likedByUsers": []] as [String : Any]
                             
                             firestoreReference = firestoreDatabase.collection("Posts").addDocument(data: firestorePost, completion: { (error) in
                                 if error != nil {

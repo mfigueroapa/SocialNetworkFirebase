@@ -27,6 +27,12 @@ class ViewController: UIViewController {
     @IBAction func signInClicked(_ sender: Any) {
         if emailText.text != "" && passwordText.text != "" {
             Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!) { (authdata, error) in
+                
+//                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+//                changeRequest?.mutableArrayValue(forKey: "likedPostsId")
+//                changeRequest?.commitChanges { (error) in
+//
+//                }
                 if error != nil {
                   self.makeAlert(titleInput: "Error!", messageInput: error?.localizedDescription ?? "Error")
                 } else {
@@ -41,7 +47,9 @@ class ViewController: UIViewController {
     @IBAction func signUpClicked(_ sender: Any) {
         
         if emailText.text != "" && passwordText.text != "" {
+            
             Auth.auth().createUser(withEmail: emailText.text!, password: passwordText.text!) { (authdata, error) in
+                
                 
                 if error != nil {
                     self.makeAlert(titleInput: "Error!", messageInput: error?.localizedDescription ?? "Error")

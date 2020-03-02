@@ -275,6 +275,7 @@
                                         <connections>
                                             <outlet property="commentLabel" destination="oSM-72-QQL" id="w0B-hr-3Hh"/>
                                             <outlet property="documentIdLabel" destination="SrA-aL-X0x" id="kJ7-Y1-9UT"/>
+                                            <outlet property="likeButton" destination="7yO-g2-i0e" id="YPh-gC-2I9"/>
                                             <outlet property="likeLabel" destination="SrH-z4-UPb" id="mLJ-0T-w6Z"/>
                                             <outlet property="userEmailLabel" destination="e0I-S8-xaa" id="HSG-Ob-ixB"/>
                                             <outlet property="userImageView" destination="jFS-Wj-Kzh" id="rsP-sr-UDb"/>

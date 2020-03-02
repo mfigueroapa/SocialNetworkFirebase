@@ -10,14 +10,15 @@ import UIKit
 import Firebase
 
 class FeedTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var documentIdLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
     var likedByUsersArr = [String]()
     var likeStore = [String:Any]()
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         getFireStoreData()
@@ -29,6 +30,13 @@ class FeedTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func likeButtonClicked(_ sender: Any) {
+        
+        if likeButton.titleLabel?.text == "Like"{
+            likeButton.setTitle("Unlike", for: .normal)
+        } else {
+            likeButton.setTitle("Like", for: .normal)
+        }
+        
         let fireStoreData = Firestore.firestore()
         if let likeCount = Int(likeLabel.text!) {
             var usersIdElement = String()
@@ -42,8 +50,6 @@ class FeedTableViewCell: UITableViewCell {
                 self.likeStore = ["likes" : likeCount + 1] as [String : Any]
                 likedByUsersArr.append(usersIdElement)
             }
-            
-            
             let likedByUsers = ["likedByUsers" : likedByUsersArr] as [String : Any]
             
             fireStoreData.collection("Posts").document(documentIdLabel.text!).setData(likeStore, merge: true)
@@ -55,35 +61,6 @@ class FeedTableViewCell: UITableViewCell {
         
         
     }
-    
-    
-    
-    
-//        @IBAction func likeButtonClicked(_ sender: Any) {
-//            let fireStoreData = Firestore.firestore()
-//            if let likeCount = Int(likeLabel.text!) {
-//
-//    //            if likedByUsersArr.contains(<#T##element: String##String#>)
-//
-//
-//                let likeStore = ["likes" : likeCount + 1] as [String : Any] //if let bacause we want to convert it to Int
-//
-//
-//                var usersIdElement = String()
-//                usersIdElement = (Auth.auth().currentUser?.email!)!
-//                likedByUsersArr.append(usersIdElement)
-//
-//                let likedByUsers = ["likedByUsers" : likedByUsersArr] as [String : Any]
-//
-//                fireStoreData.collection("Posts").document(documentIdLabel.text!).setData(likeStore, merge: true)
-//                fireStoreData.collection("Posts").document(documentIdLabel.text!).setData(likedByUsers, merge: true)
-//
-//
-//
-//            }
-//
-//
-//        }
     
     
     

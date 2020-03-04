@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseFirestore
 import SDWebImage
+import OneSignal
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -21,12 +23,48 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     var userImageArray = [String]()
     var documentIdArray = [String]()
     
+    let fireStoreDatabase = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         getFireStoreData()
+        
+        ///Player IDs
+        let status : OSPermissionSubscriptionState = OneSignal.getPermissionSubscriptionState()
+        let playerId = status.subscriptionStatus.userId
+        
+        if let playerNewId = playerId {
+            fireStoreDatabase.collection("PlayerId").whereField("email", isEqualTo: Auth.auth().currentUser!.email!).getDocuments { (snapshot, error) in
+                if error == nil {
+                    if snapshot?.isEmpty == false && snapshot != nil {
+                        for document in snapshot!.documents {
+                            if let playerIDFromFirebase = document.get("player_id") as? String {
+                                let documentId = document.documentID
+                                
+                                if playerNewId != playerIDFromFirebase {
+                                    let playerIdDictionary = ["email" : Auth.auth().currentUser!.email!, "player_id": playerId]
+                                    self.fireStoreDatabase.collection("PlayerId").addDocument(data: playerIdDictionary) { (error) in
+                                        if error != nil {
+                                            print(error?.localizedDescription)
+                                        }//end if
+                                    }//end closure
+                                }
+    
+                            }
+                        }
+                    } else {
+                        let playerIdDictionary = ["email" : Auth.auth().currentUser!.email!, "player_id": playerId]
+                        self.fireStoreDatabase.collection("PlayerId").addDocument(data: playerIdDictionary) { (error) in
+                            if error != nil {
+                                print(error?.localizedDescription)
+                            }//end if
+                        }
+                    }
+                }
+            }
+        }//end if let
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,7 +83,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func getFireStoreData() {
-        let fireStoreDatabase = Firestore.firestore()
+        
         fireStoreDatabase.collection("Posts").order(by: "date", descending: true).addSnapshotListener { (snapshot, error) in
             if error != nil {
                 print(error?.localizedDescription)
